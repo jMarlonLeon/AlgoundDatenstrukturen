@@ -17,7 +17,7 @@ def meinefunktion(node):
 # meinefunktion = Inorder Traversal
 
 
-# Was ist das ? : Ein gerichteter, binärer Baum
+# Was ist das ? : Ein gerichteter, binärer Suchbaum
 root = Node(1)
 root.left = Node(2)
 root.right = Node(3)
