@@ -1,5 +1,5 @@
 
-def counting_sort (eingabefeld) :
+def counting_sort(eingabefeld) :
     # Sortiert das übergebene eingabefeld u. liefer Ergebnis in neuem Feld
     anzahl_elemente = len(eingabefeld)
     groesster_wert = max(eingabefeld)
