@@ -39,5 +39,6 @@ start = [3,6,1,7,5,2,9,8]
 eingabe = start.copy()
 
 print("Unsortiertes Array:", start)
+
 merge_sort(eingabe, 0, len(eingabe) - 1)
 print("Sortiertes Array:", eingabe)

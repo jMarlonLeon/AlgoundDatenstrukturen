@@ -26,5 +26,5 @@ start = [3,6,1,7,5,2,9,8]
 eingabe = start.copy()
 print("Unsortiertes Array:", start)
 
-ausgabe = heap_sort(eingabe, len(eingabe))
+heap_sort(eingabe, len(eingabe))
 print("Sortiertes Array:", eingabe)

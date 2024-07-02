@@ -7,12 +7,12 @@ def insertion_sort(array, length):
             array[j+1] = array[j]
             j -= 1
         array[j+1] = key
+    return array
 
 start = [3,6,1,7,5,2,9,8]
 eingabe = start.copy()
 
-ausgabe = insertion_sort(start, len(eingabe))
+print("Unsortiertes Array:", start)
 
-print(eingabe)
-
-print(ausgabe)
+insertion_sort(eingabe, len(eingabe))
+print("Sortiertes Array:", eingabe)
