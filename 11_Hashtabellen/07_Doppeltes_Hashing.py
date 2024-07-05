@@ -1,9 +1,11 @@
 
-# Hashtabelle mit offener Adressierung und quadratischer Sondierung im Kollisionsfall
-# Quadratische Sondierung: h(k, i) = (h'(k) + i^2) mod m
-# Der Index wird um i^2 erhöht, bis ein freier Platz gefunden wird
+# Hastabelle mit offener Adressierung und doppeltem Hashing im Kollisionsfall
+# Doppeltes Hashing: h(k, i) = (h1(k) + i * h2(k)) mod m
+# h1(k) = k mod m
+# h2(k) = 1 + (k mod (m - 1))
+# Der Index (hash1) wird um i * hash2 erhöht, bis ein freier Platz gefunden wird
 
-# -----------------------------------------------------------------------------------
+# ---------------------------------------------------------------------------------
 
 # Größe der Hashtabelle
 GROESSE = 10
@@ -11,19 +13,20 @@ GROESSE = 10
 # Initialisierung der Hashtabelle
 hashtabelle = [None] * GROESSE
 
-# Hash-Funktion
-def hash_funktion(schluessel):
-    # alternativ zur hash() für ganzen string geht auch ord() für den ersten Buchstaben
-    return hash(schluessel) % GROESSE
+# Primäre Hash-Funktion
+def hash_funktion1(schluessel):
+    return ord(schluessel[0]) % GROESSE
 
-def quadratische_sondierung(index, i):
-    return (index + i * i) % GROESSE
+# Sekundäre Hash-Funktion
+def hash_funktion2(schluessel):
+    return 1 + (ord(schluessel[0]) % (GROESSE - 1))
 
 def einfuegen(schluessel, wert):
-    index = hash_funktion(schluessel)
+    index1 = hash_funktion1(schluessel)
+    index2 = hash_funktion2(schluessel)
     i = 0
     while i < GROESSE:
-        probe_index = quadratische_sondierung(index, i)
+        probe_index = (index1 + i * index2) % GROESSE
         if hashtabelle[probe_index] is None or hashtabelle[probe_index][0] == schluessel:
             hashtabelle[probe_index] = (schluessel, wert)
             return True
@@ -31,10 +34,11 @@ def einfuegen(schluessel, wert):
     return False  # Hashtabelle ist voll
 
 def suchen(schluessel):
-    index = hash_funktion(schluessel)
+    index1 = hash_funktion1(schluessel)
+    index2 = hash_funktion2(schluessel)
     i = 0
     while i < GROESSE:
-        probe_index = quadratische_sondierung(index, i)
+        probe_index = (index1 + i * index2) % GROESSE
         if hashtabelle[probe_index] is None:
             return None
         if hashtabelle[probe_index][0] == schluessel:
@@ -43,10 +47,11 @@ def suchen(schluessel):
     return None  # Schlüssel nicht gefunden
 
 def loeschen(schluessel):
-    index = hash_funktion(schluessel)
+    index1 = hash_funktion1(schluessel)
+    index2 = hash_funktion2(schluessel)
     i = 0
     while i < GROESSE:
-        probe_index = quadratische_sondierung(index, i)
+        probe_index = (index1 + i * index2) % GROESSE
         if hashtabelle[probe_index] is None:
             return False
         if hashtabelle[probe_index][0] == schluessel:

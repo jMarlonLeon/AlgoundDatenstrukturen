@@ -1,5 +1,9 @@
 
-# Hasfunktion mit Offener Adressierung und Linearer Sondierung im Kollisionsfall
+# Hasfunktion mit Offener Adressierung und linearer Sondierung im Kollisionsfall
+# Lineare Sondierung: h(k, i) = (h'(k) + i) mod m
+# Der Index wird um i erhöht, bis ein freier Platz gefunden wird
+
+# ---------------------------------------------------------------------------------
 
 # Größe der Hashtabelle
 GROESSE = 10
@@ -8,8 +12,8 @@ hashtabelle = [None] * GROESSE
 
 # Hash-Funktion
 def hash_funktion(schluessel):
-    # alternativ zur ord() geht auch hash() für ganzen string statt nur erstes zeichen
-    return ord(schluessel[0]) % GROESSE
+    # alternativ zur hash() für ganzen string geht auch ord() für den ersten Buchstaben
+    return hash(schluessel) % GROESSE
 
 def lineare_sondierung(index, i):
     return (index + i) % GROESSE
@@ -51,7 +55,7 @@ def loeschen(schluessel):
     return False  # Schlüssel nicht gefunden
 
 
-# ----------------------------------------------------------
+# ---------------------------------------------------------------------------------
 
 einfuegen("Apfel", 1)
 einfuegen("Banane", 2)
