@@ -30,7 +30,7 @@ def loeschen(schluessel):
             return False
         
         if hashtabelle[probe_index] == schluessel:
-            hashtabelle[probe_index] = None
+            hashtabelle[probe_index] = None # Hier müsste als Wert eigentlich der von Schroeter verlangte Wert "Entfernt" stehen
             return True
         i += 1
     return False  # Schlüssel nicht gefunden
