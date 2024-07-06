@@ -9,7 +9,7 @@ def insertion_sort(array, length):
         array[j+1] = key
     return array
 
-start = [3,6,1,7,5,2,9,8]
+start = [3,1,5,7,2,9,6]
 eingabe = start.copy()
 
 print("Unsortiertes Array:", start)
