@@ -1,3 +1,10 @@
+'''
+Ausgabe aller Knoten
+Betrachten Sie das Einfügen der Schlüssel 10, 22, 31, 4, 15, 28, 17, 88, 59 in 
+eine Hashtabelle mit offener Adressierung der Länge 11. 
+Die Hilfshashfunktion sei h ́(𝑘) = 𝑘 mod 𝑚. 
+Illustrieren Sie das Einfügen der Schlüssel mithilfe des linearen Sondierens.
+'''
 
 GROESSE = 11
 
