@@ -46,5 +46,6 @@ baum.rechts.rechts.rechts.links = binärbaum(36)
 baum.rechts.rechts.rechts.links.links = binärbaum(34)
 baum.rechts.rechts.rechts.links.rechts = binärbaum(38)
 
+
 # Breitensuche im Baum
 print(bfs(baum, 25).schlüssel) # Ausgabe: 25
