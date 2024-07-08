@@ -7,7 +7,7 @@ hashtabelle = [None] * GROESSE
 def hashfunktion(schluessel):
     A = (sqrt(5) -1) /2
     # alternative zu floor geht auch int() oder // 1
-    hashwert = floor(GROESSE * (schluessel * A % 1))
+    hashwert = (GROESSE * (schluessel * A % 1))
     return hashwert
 
 def einfuegen(schluessel):
