@@ -22,6 +22,12 @@ def counting_sort(eingabefeld) :
     for element in range(anzahl_elemente-1,-1, -1):
         rueckgabefeld[zaehlfeld[eingabefeld[element]]-1] = eingabefeld[ element]
         zaehlfeld[eingabefeld[element]] -= 1
+
+# Erklärung erstelle sortiertes Ausgabefeld
+# 1. zaehlfeld[eingabefeld[element]]-1 = ursprünglicher Index des Elementes im sortierten Feld
+# 2. eingabefeld[ element] = Wert des Elementes
+# 3. zaehlfeld[eingabefeld[element]] -= 1 = Dekrementiere den Zähler für den Wert des Elementes
+
     
     return rueckgabefeld
 
